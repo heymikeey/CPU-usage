@@ -16,7 +16,7 @@ if memory_limit[-1] == 'M':
 while True:
     time.sleep(int(minutes) + 60)
     used_memory = os.popen('free -t -m').readlines()[-1].split()[2]
-    if used_memory => memory_limit:
+    if used_memory >= memory_limit:
         # create status report
         # generate sound
 
