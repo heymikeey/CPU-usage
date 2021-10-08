@@ -2,6 +2,7 @@
 import os
 import sys
 import time
+from playsound import playsound
 
 memory_limit, minutes = sys.argv[1:]
 
@@ -14,9 +15,9 @@ if memory_limit[-1] == 'M':
     memory_limit *= 10 ** 6
 
 while True:
-    time.sleep(int(minutes) + 60)
-    used_memory = os.popen('free -t -m').readlines()[-1].split()[2]
-    if used_memory >= memory_limit:
+	time.sleep(int(minutes) + 60)
+	used_memory = os.popen('free -t -m').readlines()[-1].split()[2]
+	if used_memory >= memory_limit:
+		playsound('erro.mp3')
         # create status report
         # generate sound
-
