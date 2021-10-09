@@ -2,7 +2,7 @@
 import os
 import sys
 import time
-import playsound
+import winsound
 
 memory_limit, minutes = sys.argv[1:]
 
@@ -21,5 +21,8 @@ while True:
 		#playsound('erro.mp3')
         # create status report
         
-        print("\a")
-        # generate sound
+
+                                                # generate sound
+            frequency = 2500  # Set Frequency To 2500 Hertz
+            duration = 1000  # Set Duration To 1000 ms == 1 second
+            winsound.Beep(frequency, duration)
