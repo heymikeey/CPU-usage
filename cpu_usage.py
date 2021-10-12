@@ -7,21 +7,22 @@ memory_limit, minutes = sys.argv[1:]
 logfile = "/tmp/cpu_usage_rapport.txt"
 
 if memory_limit[-1] == 'G':
-    memory_limit = float(memory_limit[:-1])
-    memory_limit *= 10 ** 9     # convert memory_limit from GB to B
-
+    memory_limit = int(memory_limit[:-1])
+    memory_limit *= 1024    # convert memory_limit from GB to MB
 
 if memory_limit[-1] == 'M':
-    memory_limit = float(memory_limit[:-1])
-    memory_limit *= 10 ** 6     # convert memory_limit from MB to B
+    memory_limit = int(memory_limit[:-1])
 
+
+print(memory_limit)                                 #debug
 while True:
     time.sleep(int(minutes) * 1)
-    used_memory = os.popen('free -t').readlines()[-1].split()[2]
+    used_memory = os.popen('free -t -m').readlines()[-1].split()[2]
     
     if float(used_memory) > memory_limit:
+        print("Writing to log")                     #debug
         with open(logfile, 'a') as out:
-             out.write("treshold exceeded" + '\n')  #test to write to location (works) //MJ
+             out.write("threshold exceeded" + '\n') #test to write to location (works) //MJ
         
         
 
