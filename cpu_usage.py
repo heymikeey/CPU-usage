@@ -11,7 +11,7 @@ def log_processes():
     timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
     log_file = "/tmp/cpu_usage_rapport.txt"
     log_body = ["*******{}*******".format(timestamp),
-                "[PID]\t[name]\t[memory]"]
+            "[PID]\t[name]\t[memory]"]
 
     #adds running processes to 'log_body' with pid, name and memory usage in K
     for p in processes_raw[1:-2]:
@@ -24,7 +24,7 @@ def log_processes():
     with open(log_file, 'a') as out:
         for item in log_body:
             out.write("%s\n" % item)
-    return
+        return
 
 def main():
 
@@ -39,7 +39,7 @@ def main():
 
 
     while True:
-        time.sleep(int(minutes) * 1)                                        #wait x minutes before proceeding
+        time.sleep(int(minutes) * 60)        #wait x minutes before proceeding
         used_memory = os.popen('free -t -m').readlines()[-1].split()[2]     #get used memory in MB
 
         if float(used_memory) > memory_limit:
@@ -47,6 +47,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-        
-
-
+    
