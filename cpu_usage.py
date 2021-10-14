@@ -39,7 +39,7 @@ if memory_limit[-1] == 'M':
 
 
 while True:
-    time.sleep(int(minutes) * 1)                                        #wait x minutes before proceeding
+    time.sleep(int(minutes) * 60)                                        #wait x minutes before proceeding
     used_memory = os.popen('free -t -m').readlines()[-1].split()[2]     #get used memory in MB
     
     if float(used_memory) > memory_limit:
