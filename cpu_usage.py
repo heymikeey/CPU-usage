@@ -29,6 +29,7 @@ def log_processes():
 def main():
 
     memory_limit, minutes = sys.argv[1:]
+
     if memory_limit[-1] == 'G':
         memory_limit = float(memory_limit[:-1])
         memory_limit *= 1024                         # convert memory_limit from GB to MB
@@ -45,4 +46,5 @@ def main():
             log_processes()
 
 if __name__ == "__main__":
-	main()
+    main()
+    
