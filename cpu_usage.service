@@ -1,0 +1,8 @@
+[Unit]
+Description=example systemd service unit file.
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/bin/cpu_usage.py 100M 5
+
+[Install]
+WantedBy=multi-user.target
