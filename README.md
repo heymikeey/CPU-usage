@@ -1,9 +1,7 @@
 # Cpu-Usage
 
 Gruppens medlemmar:
-Hannes 
-Josip
-Mikael J
+Hannes, Josip, Mikael J
 
 ## Del 1 Kopiera
 
